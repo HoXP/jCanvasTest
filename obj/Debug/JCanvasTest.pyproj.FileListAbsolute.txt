@@ -1,0 +1,13 @@
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\JCanvasTest\JCanvasTest\bin\Microsoft.PythonTools.WebRole.dll
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\JCanvasTest\JCanvasTest\obj\Debug\attach_server.py
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\JCanvasTest\JCanvasTest\obj\Debug\visualstudio_py_debugger.py
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\JCanvasTest\JCanvasTest\obj\Debug\visualstudio_py_repl.py
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\JCanvasTest\JCanvasTest\obj\Debug\visualstudio_py_util.py
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\JCanvasTest\JCanvasTest\obj\Debug\__init__.py
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\JCanvasTest\JCanvasTest\obj\Debug\__main__.py
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\JCanvasTest\JCanvasTest\bin\AzureSetup.cfg
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\JCanvasTest\JCanvasTest\bin\Microsoft.PythonTools.AzureSetup.exe
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\JCanvasTest\JCanvasTest\bin\Microsoft.PythonTools.AzureSetup.exe.config
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\JCanvasTest\JCanvasTest\bin\wfastcgi.py
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\JCanvasTest\JCanvasTest\obj\Debug\web.config
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\JCanvasTest\JCanvasTest\obj\Debug\web.debug.config

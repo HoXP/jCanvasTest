@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}jCanvas|index{% endblock %}
+{% block body %}
+    <div style="border:groove">
+        <canvas id="cvsMain"/>
+    </div>
+<script>
+    var $myCanvas = $('#cvsMain');
+    $myCanvas.width = 1920;
+    $myCanvas.height = 1080;
+    $myCanvas.drawRect({
+        fillStyle: 'steelblue',
+        strokeStyle: 'blue',
+        strokeWidth: 2,
+        x: 200, y: 100,
+        width: 200,
+        height: 50
+    });
+</script>
+{% endblock %}

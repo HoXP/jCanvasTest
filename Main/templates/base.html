@@ -1,0 +1,14 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>{% block title %}jCanvas{% endblock %}</title>
+
+    {% load staticfiles %}
+    <script src="{% static 'jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'jcanvas.min.js' %}"></script>
+</head>
+<body>
+    {% block body %}sss{% endblock %}
+</body>
+</html>
