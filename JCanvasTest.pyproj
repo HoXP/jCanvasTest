@@ -43,6 +43,7 @@
     <Content Include="Main\static\jquery-3.2.1.min.js" />
     <Content Include="Main\templates\base.html" />
     <Content Include="Main\templates\index.html" />
+    <Content Include="Main\templates\sort_bubble.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>

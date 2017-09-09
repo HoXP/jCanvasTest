@@ -4,11 +4,18 @@
     <meta charset="utf-8" />
     <title>{% block title %}jCanvas{% endblock %}</title>
 
+    <style>
+        body{ text-align:center}
+        .div{border:1px solid #003cff;}
+        .canvas{width:1080px; height:720px;}
+    </style>
+
     {% load staticfiles %}
     <script src="{% static 'jquery-3.2.1.min.js' %}"></script>
     <script src="{% static 'jcanvas.min.js' %}"></script>
 </head>
 <body>
-    {% block body %}sss{% endblock %}
+    {% block content %}sss{% endblock %}
+    <footer><p>{{ year }} - DataStructure & Algorithm</p></footer>
 </body>
 </html>
