@@ -1,31 +1,6 @@
 ﻿{% extends "base.html" %}
 {% block title %}jCanvas|sort_bubble{% endblock %}
-
-{% block content %}
-<div class="div">
-    <canvas id="bubbleCanvas" class="canvas"></canvas>
-</div>
-<script>
-    var $myCanvas = $("bubbleCanvas");
-    $myCanvas.width = window.innerWidth;   //将Canvas宽高设置为浏览器窗口的宽高
-    $myCanvas.height = window.innerHeight;
-    $myCanvas.drawRect({
-        fillStyle: 'steelblue',
-        strokeStyle: 'blue',
-        strokeWidth: 2,
-        x: 0, y: 0,
-        fromCenter: false,
-        width: 200,
-        height: 200
-    });
-
-    var List = {{ list }};
-
-    $("canvas").drawPolygon({
-  draggable: true,
-  fillStyle: "#6c3",
-  x: 100, y: 100,
-  radius: 50, sides: 5
-});
-</script>
+{% block script %}
+    {% load staticfiles %}
+    <script src="{% static 'sort_bubble.js' %}"></script>
 {% endblock %}

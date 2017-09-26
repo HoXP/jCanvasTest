@@ -1,7 +1,4 @@
-﻿"""
-Definition of urls for JCanvasTest.
-"""
-from django.conf.urls import include, url
+﻿from django.conf.urls import include, url
 from Main import views as main
 
 # Uncomment the next two lines to enable the admin:
@@ -19,5 +16,6 @@ urlpatterns = [
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
     url(r'^$', main.index, name='index'),
+    url(r'^learn$', main.learn, name='learn'),
     url(r'^sort/bubble$', main.sort_bubble, name='sort_bubble'),
 ]

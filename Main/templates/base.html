@@ -1,21 +1,31 @@
 ﻿<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
     <title>{% block title %}jCanvas{% endblock %}</title>
 
-    <style>
-        body{ text-align:center}
-        .div{border:1px solid #003cff;}
-        .canvas{width:1080px; height:720px;}
-    </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {% load staticfiles %}
     <script src="{% static 'jquery-3.2.1.min.js' %}"></script>
     <script src="{% static 'jcanvas.min.js' %}"></script>
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    {% block script %}{% endblock %}
 </head>
 <body>
-    {% block content %}sss{% endblock %}
+    {% block content %}
+    <div class="container-fluid">
+        <div class="panel panel-info">
+            <div class="panel-heading">Canvas</div>
+            <div id="parent" class="panel-body">
+                <canvas id="cvs">
+                    This is fallback content for users of assistive technologies or of browsers that don‘t have full support for the Canvas API.
+                </canvas>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
     <footer><p>{{ year }} - DataStructure & Algorithm</p></footer>
 </body>
 </html>

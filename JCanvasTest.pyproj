@@ -28,6 +28,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Main\define.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Main\models.py" />
     <Compile Include="Main\tests.py" />
     <Compile Include="Main\views.py" />
@@ -39,10 +42,29 @@
     <Compile Include="JCanvasTest\wsgi.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Main\static\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Main\static\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="Main\static\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Main\static\bootstrap\css\bootstrap-theme.min.css.map" />
+    <Content Include="Main\static\bootstrap\css\bootstrap.css" />
+    <Content Include="Main\static\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Main\static\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Main\static\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Main\static\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Main\static\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Main\static\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Main\static\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Main\static\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Main\static\bootstrap\js\bootstrap.js" />
+    <Content Include="Main\static\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Main\static\bootstrap\js\npm.js" />
     <Content Include="Main\static\jcanvas.min.js" />
     <Content Include="Main\static\jquery-3.2.1.min.js" />
+    <Content Include="Main\static\learn.js" />
+    <Content Include="Main\static\sort_bubble.js" />
     <Content Include="Main\templates\base.html" />
     <Content Include="Main\templates\index.html" />
+    <Content Include="Main\templates\learn.html" />
     <Content Include="Main\templates\sort_bubble.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
@@ -50,6 +72,10 @@
     <Folder Include="JCanvasTest\" />
     <Folder Include="Main\" />
     <Folder Include="Main\static\" />
+    <Folder Include="Main\static\bootstrap\" />
+    <Folder Include="Main\static\bootstrap\css\" />
+    <Folder Include="Main\static\bootstrap\fonts\" />
+    <Folder Include="Main\static\bootstrap\js\" />
     <Folder Include="Main\templates\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />
