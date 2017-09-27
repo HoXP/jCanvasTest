@@ -2,5 +2,18 @@
 {% block title %}jCanvas|learn{% endblock %}
 {% block script %}
     {% load staticfiles %}
-    <script src="{% static 'learn.js' %}"></script>
+    <script src="{% static 'js/learn.js' %}"></script>
+{% endblock %}
+{% block content%}
+<div class="site-wrapper">
+    <div class="site-wrapper-inner">
+        <div class="cover-container">
+            <div id="parent" class="inner cover">
+                <canvas id="cvs">
+                    This is fallback content for users of assistive technologies or of browsers that don‘t have full support for the Canvas API.
+                </canvas>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

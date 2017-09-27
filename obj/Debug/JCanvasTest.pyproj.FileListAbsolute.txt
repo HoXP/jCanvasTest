@@ -24,3 +24,16 @@ D:\我的文档\Visual Studio 2013\Projects\jCanvasTest\bin\Microsoft.PythonTool
 D:\我的文档\Visual Studio 2013\Projects\jCanvasTest\bin\wfastcgi.py
 D:\我的文档\Visual Studio 2013\Projects\jCanvasTest\obj\Debug\web.config
 D:\我的文档\Visual Studio 2013\Projects\jCanvasTest\obj\Debug\web.debug.config
+D:\Documents\Visual Studio 2013\Projects\jCanvasTest\bin\Microsoft.PythonTools.WebRole.dll
+D:\Documents\Visual Studio 2013\Projects\jCanvasTest\obj\Debug\attach_server.py
+D:\Documents\Visual Studio 2013\Projects\jCanvasTest\obj\Debug\visualstudio_py_debugger.py
+D:\Documents\Visual Studio 2013\Projects\jCanvasTest\obj\Debug\visualstudio_py_repl.py
+D:\Documents\Visual Studio 2013\Projects\jCanvasTest\obj\Debug\visualstudio_py_util.py
+D:\Documents\Visual Studio 2013\Projects\jCanvasTest\obj\Debug\__init__.py
+D:\Documents\Visual Studio 2013\Projects\jCanvasTest\obj\Debug\__main__.py
+D:\Documents\Visual Studio 2013\Projects\jCanvasTest\bin\AzureSetup.cfg
+D:\Documents\Visual Studio 2013\Projects\jCanvasTest\bin\Microsoft.PythonTools.AzureSetup.exe
+D:\Documents\Visual Studio 2013\Projects\jCanvasTest\bin\Microsoft.PythonTools.AzureSetup.exe.config
+D:\Documents\Visual Studio 2013\Projects\jCanvasTest\bin\wfastcgi.py
+D:\Documents\Visual Studio 2013\Projects\jCanvasTest\obj\Debug\web.config
+D:\Documents\Visual Studio 2013\Projects\jCanvasTest\obj\Debug\web.debug.config

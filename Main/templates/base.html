@@ -7,25 +7,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {% load staticfiles %}
-    <script src="{% static 'jquery-3.2.1.min.js' %}"></script>
-    <script src="{% static 'jcanvas.min.js' %}"></script>
-    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'common/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'common/jcanvas.min.js' %}"></script>
+    <link href="{% static 'common/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <script src="{% static 'common/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/global.js' %}"></script>
     {% block script %}{% endblock %}
 </head>
 <body>
     {% block content %}
     <div class="container-fluid">
         <div class="panel panel-info">
-            <div class="panel-heading">Canvas</div>
-            <div id="parent" class="panel-body">
-                <canvas id="cvs">
-                    This is fallback content for users of assistive technologies or of browsers that don‘t have full support for the Canvas API.
-                </canvas>
+            <div class="panel-heading">
+                Canvas
             </div>
+            <div>
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Action <span class="caret"></span>
+                </button>
+            </div>
+            <canvas id="cvs" class="well center-block">
+                Please use browsers that fullly support for the Canvas API.
+            </canvas>
+            <div class="panel-footer"><small>{{ year }} - D & A</small></div>
         </div>
     </div>
     {% endblock %}
-    <footer><p>{{ year }} - DataStructure & Algorithm</p></footer>
 </body>
 </html>
