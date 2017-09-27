@@ -4,7 +4,7 @@
     <title>{% block title %}jCanvas{% endblock %}</title>
 
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
     {% load staticfiles %}
     <script src="{% static 'common/jquery-3.2.1.min.js' %}"></script>
@@ -21,14 +21,13 @@
             <div class="panel-heading">
                 Canvas
             </div>
-            <div>
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Action <span class="caret"></span>
-                </button>
+            <div class="panel-body center-block">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <canvas id="cvs" class="well embed-responsive-item" width="1920" height="1080">
+                        Please use browsers that fullly support for the Canvas API.
+                    </canvas>
+                </div>
             </div>
-            <canvas id="cvs" class="well center-block">
-                Please use browsers that fullly support for the Canvas API.
-            </canvas>
             <div class="panel-footer"><small>{{ year }} - D & A</small></div>
         </div>
     </div>
