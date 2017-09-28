@@ -16,21 +16,18 @@
 </head>
 <body>
     {% block content %}
-    <div class="container-fluid">
-        <div class="panel panel-info">
+        <div class="panel-primary">
             <div class="panel-heading">
                 Canvas
             </div>
-            <div class="panel-body center-block">
-                <div class="embed-responsive embed-responsive-16by9">
+            <div class="panel-body">
+                <div class="embed-responsive embed-responsive-16by9 center-block">
                     <canvas id="cvs" class="well embed-responsive-item" width="1920" height="1080">
                         Please use browsers that fullly support for the Canvas API.
                     </canvas>
                 </div>
             </div>
-            <div class="panel-footer"><small>{{ year }} - D & A</small></div>
         </div>
-    </div>
     {% endblock %}
 </body>
 </html>

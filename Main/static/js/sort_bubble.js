@@ -1,4 +1,4 @@
-﻿function Draw() {
+﻿function Flush() {
     if ($(cvsId) == null) {
         alert("no canvas");
     }
@@ -10,4 +10,3 @@
         start: 0, end: 360
     });
 }
-$(document).ready(Draw);
