@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="zh-CN">
 <head>
     <title>{% block title %}jCanvas{% endblock %}</title>
 
@@ -16,13 +16,15 @@
 </head>
 <body>
     {% block content %}
-    <div class="jumbotron">
+    <div class="container-fluid fluid">
+        <div class="jumbotron">
         {%include 'nav.html'%}
-        <div class="container">
-            <div class="embed-responsive embed-responsive-16by9">
-                <canvas id="cvs" class="well embed-responsive-item" width="1920" height="1080">
-                    Please use browsers that fullly support for the Canvas API.
-                </canvas>
+            <div class="container">
+                <div class="table-bordered embed-responsive embed-responsive-16by9">
+                    <canvas id="cvs" class=" embed-responsive-item" width="1920" height="1080">
+                        Please use browsers that fullly support for the Canvas API.
+                    </canvas>
+                </div>
             </div>
         </div>
     </div>
