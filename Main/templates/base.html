@@ -16,18 +16,16 @@
 </head>
 <body>
     {% block content %}
-        <div class="panel-primary">
-            <div class="panel-heading">
-                Canvas
-            </div>
-            <div class="panel-body">
-                <div class="embed-responsive embed-responsive-16by9 center-block">
-                    <canvas id="cvs" class="well embed-responsive-item" width="1920" height="1080">
-                        Please use browsers that fullly support for the Canvas API.
-                    </canvas>
-                </div>
+    <div class="jumbotron">
+        {%include 'nav.html'%}
+        <div class="container">
+            <div class="embed-responsive embed-responsive-16by9">
+                <canvas id="cvs" class="well embed-responsive-item" width="1920" height="1080">
+                    Please use browsers that fullly support for the Canvas API.
+                </canvas>
             </div>
         </div>
+    </div>
     {% endblock %}
 </body>
 </html>
