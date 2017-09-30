@@ -68,6 +68,7 @@
     <Content Include="Main\templates\index.html" />
     <Content Include="Main\templates\nav.html" />
     <Content Include="Main\templates\sort_bubble.html" />
+    <Content Include="Main\templates\tools.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
