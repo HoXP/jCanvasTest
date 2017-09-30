@@ -61,12 +61,12 @@
     <Content Include="Main\static\common\jcanvas.min.js" />
     <Content Include="Main\static\common\jquery-3.2.1.min.js" />
     <Content Include="Main\static\js\global.js" />
-    <Content Include="Main\static\js\learn.js" />
+    <Content Include="Main\static\js\index.js" />
     <Content Include="Main\static\js\sort_bubble.js" />
     <Content Include="Main\templates\base.html" />
     <Content Include="Main\templates\breadcrumbs.html" />
+    <Content Include="Main\templates\head.html" />
     <Content Include="Main\templates\index.html" />
-    <Content Include="Main\templates\learn.html" />
     <Content Include="Main\templates\nav.html" />
     <Content Include="Main\templates\sort_bubble.html" />
     <Content Include="requirements.txt" />

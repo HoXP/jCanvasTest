@@ -16,6 +16,5 @@ urlpatterns = [
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
     url(r'^$', main.index, name='index'),
-    url(r'^learn$', main.learn, name='learn'),
     url(r'^sort/bubble$', main.sort_bubble, name='sort_bubble'),
 ]

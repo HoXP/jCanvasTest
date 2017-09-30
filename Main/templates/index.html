@@ -1,4 +1,6 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% block title %}jCanvas|index{% endblock %}
 {% block script %}
+    {% load staticfiles %}
+    <script src="{% static 'js/index.js' %}"></script>
 {% endblock %}

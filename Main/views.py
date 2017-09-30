@@ -3,9 +3,6 @@
 def index(request):
     return render(request, 'index.html')
 
-def learn(request):
-    return render(request, 'learn.html')
-
 def sort_bubble(request):
     list = [34,7856,2,546,89,90,21]
     print('开始：{}'.format(list))
