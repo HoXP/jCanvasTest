@@ -81,6 +81,7 @@
     <Folder Include="Main\static\common\bootstrap\js\" />
     <Folder Include="Main\static\js\" />
     <Folder Include="Main\static\common\" />
+    <Folder Include="Main\static\conf\" />
     <Folder Include="Main\templates\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />
