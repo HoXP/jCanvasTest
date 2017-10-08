@@ -63,6 +63,7 @@
     <Content Include="Main\static\js\global.js" />
     <Content Include="Main\static\js\index.js" />
     <Content Include="Main\static\js\sort_bubble.js" />
+    <None Include="Main\static\js\_references.js" />
     <Content Include="Main\templates\base.html" />
     <Content Include="Main\templates\head.html" />
     <Content Include="Main\templates\index.html" />
