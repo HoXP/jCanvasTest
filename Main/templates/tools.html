@@ -10,13 +10,12 @@
                     <div class="col-sm-12"><h4>Numder Generator</h4></div>
                     <div class="col-sm-8">
                         <div class="input-group">
-                            <input id="iptNumbers" type="text" class="form-control" placeholder="Input numbers seperated with , ...">
+                            <input id="iptNumbers" type="text" class="form-control" placeholder="Input numbers seperated with , ..." pattern="/^[\d,]*$/">
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="button">Gen</button>
                             </span>
                         </div>
                     </div>
-                    
                     <div class="col-sm-4">
                         <div class="input-group">
                             <input id="iptNumCount" type="number" class="form-control" min="3" max="999" value="10">
@@ -24,6 +23,11 @@
                                 <button id="btnMinus" class="btn btn-default" type="button"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
                                 <button id="btnPlus" class="btn btn-default" type="button"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
                             </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div id="dgrIptNumbers" class="alert alert-danger" role="alert" hidden="hidden">
+                            Please ensure the string in <strong><u>input</u></strong> element are numbers seperated with ",".
                         </div>
                     </div>
                 </div>
@@ -37,6 +41,19 @@
 </div>
 
 <script>
+    var iptNumbers = $('#iptNumbers');
+    var dgrIptNumbers = $('#dgrIptNumbers');
+    function OnFocusIptNumbers() {
+        var iptNumbersValue = iptNumbers.val().trim();
+        if (/^[\d,]*$/.test(iptNumbersValue)) {
+            dgrIptNumbers.hide();
+        }
+        else {
+            dgrIptNumbers.show();
+        }
+    }
+    iptNumbers.focusout(OnFocusIptNumbers);
+
     var iptNumCount = $('#iptNumCount');
     function OnFocusIptNumCount() {
         var iptNumCountValue = parseInt(iptNumCount.val());
