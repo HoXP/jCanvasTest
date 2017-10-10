@@ -1,4 +1,4 @@
-﻿<div id="mdl" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+﻿<div id="mdl" class="modal fade" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -8,23 +8,27 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-sm-12"><h4>Numder Generator</h4></div>
-                    <div class="col-sm-8">
+                </div>
+                <div class="row">
+                    <div class="col-lg-8">
                         <div class="input-group">
-                            <input id="iptNumbers" type="text" class="form-control" placeholder="Input numbers seperated with , ..." pattern="/^[\d,]*$/">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">Gen</button>
-                            </span>
+                            <input id="iptNumbers" type="text" class="form-control" placeholder="Input numbers seperated with , ...">
+                            <div class="input-group-btn">
+                                <button id="btnGen" class="btn btn-default" type="button">Gen</button>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-lg-4">
                         <div class="input-group">
                             <input id="iptNumCount" type="number" class="form-control" min="3" max="999" value="10">
-                            <span class="input-group-btn">
+                            <div class="input-group-btn">
                                 <button id="btnMinus" class="btn btn-default" type="button"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
                                 <button id="btnPlus" class="btn btn-default" type="button"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
-                            </span>
+                            </div>
                         </div>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col-sm-12">
                         <div id="dgrIptNumbers" class="alert alert-danger" role="alert" hidden="hidden">
                             Please ensure the string in <strong><u>input</u></strong> element are numbers seperated with ",".
@@ -54,6 +58,17 @@
     }
     iptNumbers.focusout(OnFocusIptNumbers);
 
+    $('#btnGen').click(function () {
+        var iptNumCountValue = parseInt(iptNumCount.val());
+        iptNumbers.val("");
+        var arr = new Array("");
+        for (var i = 0; i < iptNumCountValue; ++i) {
+            arr.push(Math.floor(Math.random() * 999 + 1));
+        }
+        iptNumbers.val(arr.join(",").substring(1));
+        iptNumbers.focusout();
+    });
+
     var iptNumCount = $('#iptNumCount');
     function OnFocusIptNumCount() {
         var iptNumCountValue = parseInt(iptNumCount.val());
@@ -67,6 +82,7 @@
         }
     }
     iptNumCount.focusout(OnFocusIptNumCount);
+
     $('#btnMinus').click(function () {
         var iptNumCountValue = parseInt(iptNumCount.val());
         if (iptNumCountValue > parseInt(iptNumCount.attr('min'))) {
