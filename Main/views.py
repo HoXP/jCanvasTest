@@ -1,10 +1,12 @@
 ﻿from django.shortcuts import render
+import define
+
+list = []
 
 def index(request):
     return render(request, 'index.html')
 
 def sort_bubble(request):
-    list = [34,7856,2,546,89,90,21]
     print('开始：{}'.format(list))
     i = 0
     for i_item in list[:-1]:	    #遍历0至N-1的列表切片；list长度为N，因为从0开始，所以需要减1，实际进行了N-1趟循环（0~N-2）
@@ -16,3 +18,13 @@ def sort_bubble(request):
         i+=1
     print('结果：{}'.format(list))
     return render(request, 'sort_bubble.html',{'list': list,'js_name':'sort_bubble.js'})
+
+def ajax_tool(request):
+    numberStr = request.GET['a']
+    strs = numberStr.split(',')
+    print(strs)
+    DataList = []
+    for index,x in strs:
+        item = define.DataItem(index,x)
+        DataList.append(item)
+    print(DataList)
