@@ -1,13 +1,15 @@
 ﻿from django.shortcuts import render
-import define
-
-list = []
+from django.http import JsonResponse
+from Main import define
+from Main import utils
+import json
 
 def index(request):
     return render(request, 'index.html')
 
 def sort_bubble(request):
-    print('开始：{}'.format(list))
+    list = [define.DataItem(0,32),define.DataItem(1,4),define.DataItem(2,231)]
+    utils.PrintList(list)
     i = 0
     for i_item in list[:-1]:	    #遍历0至N-1的列表切片；list长度为N，因为从0开始，所以需要减1，实际进行了N-1趟循环（0~N-2）
         j = 0
@@ -16,15 +18,17 @@ def sort_bubble(request):
                 (list[j],list[j + 1]) = (list[j + 1],list[j])
             j+=1
         i+=1
-    print('结果：{}'.format(list))
-    return render(request, 'sort_bubble.html',{'list': list,'js_name':'sort_bubble.js'})
+    utils.PrintList(list)
+    return render(request, 'sort_bubble.html',{'list': list})
 
 def ajax_tool(request):
     numberStr = request.GET['a']
     strs = numberStr.split(',')
     print(strs)
-    DataList = []
-    for index,x in strs:
-        item = define.DataItem(index,x)
-        DataList.append(item)
-    print(DataList)
+    list = []
+    i = 0
+    for x in strs:
+        list.append(define.DataItem(i,x))
+        i+=1
+    utils.PrintList(list)
+    return render(request, 'data.html',{'list': list})

@@ -97,8 +97,9 @@
 
     $('#btnDone').click(function () {
         var iptNumbersValue = iptNumbers.val().trim();
-        $.get("{% url 'ajax_tool' %}", { 'a': iptNumbersValue }, function (ret) {
-            alert(ret);
+        $.get('{% url 'ajax_tool' %}', { a: iptNumbersValue }, function (ret) {
+            
+            $('#rstDiv').html('{{list}}')
         });
     });
 </script>
