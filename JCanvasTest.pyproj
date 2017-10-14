@@ -31,6 +31,9 @@
     <Compile Include="Main\define.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Main\meta_data_mgr.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Main\models.py" />
     <Compile Include="Main\tests.py" />
     <Compile Include="Main\utils.py">

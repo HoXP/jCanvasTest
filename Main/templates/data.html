@@ -1,3 +1,11 @@
 ﻿<div id="rstDiv">
-    啊哦{{list}}
+    meta:
+    {%for meta_item in meta_list%}
+        {{meta_item.Value}}
+    {%endfor%}
+    <br/>
+    sort:
+    {%for item in sort_list%}
+        {{item.Value}}
+    {%endfor%}
 </div>
