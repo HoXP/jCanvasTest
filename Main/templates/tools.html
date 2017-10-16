@@ -96,11 +96,12 @@
     });
     $('#btnDone').click(function () {
         var iptNumbersValue = iptNumbers.val().trim();
-        alert(iptNumbersValue);
+        $('#rstDiv').html('meta:'+str);
         $.get('{% url 'ajax_tool' %}', { a: iptNumbersValue }, function (ret) {
             var str;
-            var list = {{meta_list}};
-            var count = {{meta_list.count}};
+            var list = {{ meta_list|safe }};
+            alert(list);
+            var count = {{meta_list.count|safe}};
             for(int i = 0;i < count;i++)
             {
                 str.append(list[i]);
@@ -109,7 +110,6 @@
                     str.append(' ');
                 }
             }
-            $('#rstDiv').html('meta:'+str);
         });
     });
 </script>

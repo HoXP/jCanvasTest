@@ -1,5 +1,4 @@
-#元数据管理器
-from Main import define
+锘縡rom Main import define
 import random
 import string
 
