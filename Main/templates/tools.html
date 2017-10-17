@@ -96,8 +96,7 @@
     });
     $('#btnDone').click(function () {
         var iptNumbersValue = iptNumbers.val().trim();
-        $('#rstDiv').html('meta:'+str);
-        $.get('{% url 'ajax_tool' %}', { a: iptNumbersValue }, function (ret) {
+        $.post('{% url 'ajax_tool' %}', { a: iptNumbersValue }, function (ret) {
             var str;
             var list = {{ meta_list|safe }};
             alert(list);
@@ -110,6 +109,7 @@
                     str.append(' ');
                 }
             }
+            $('#rstDiv').html('meta:'+ str);
         });
     });
 </script>
