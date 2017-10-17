@@ -4,17 +4,16 @@ import json
 from Main import define
 from Main import utils
 from Main import meta_data_mgr
+from django.views.decorators.csrf import csrf_exempt
 
 def index(request):
     metaList = meta_data_mgr.InitMataListByRandomNums();
-    sortList = metaList.copy()
-    utils.PrintList(metaList)
-    return render(request, 'index.html',{'sort_list': [],'meta_list' : json.dumps(metaList)})
+    return render(request, 'index.html',{'meta_list' : metaList})
 
 def sort_bubble(request):
     metalist = meta_data_mgr.InitMataListByRandomNums();
+    utils.PrintList(metalist)
     sortList = metalist.copy()
-    utils.PrintList(sortList)
     i = 0
     for i_item in sortList[:-1]:	    #遍历0至N-1的列表切片；list长度为N，因为从0开始，所以需要减1，实际进行了N-1趟循环（0~N-2）
         j = 0
@@ -24,12 +23,13 @@ def sort_bubble(request):
             j+=1
         i+=1
     utils.PrintList(sortList)
-    return render(request, 'sort_bubble.html',{'sort_list': sortList,'meta_list' : json.dumps(metalist)})
+    return render(request, 'sort_bubble.html',{'sort_list': sortList,'meta_list' : metalist})
 
+@csrf_exempt
 def ajax_tool(request):
     numberStr = request.POST['a']
     utils.PrintList(numberStr)
     metalist = InitMataListByStrs(numberStr)
     utils.PrintList(meta_data_mgr.metalist)
-    #return render(request, 'data.html',{'sort_list': [],'meta_list' : json.dumps(metalist)})
-    return JsonResponse({'sort_list': [],'meta_list' : json.dumps(metalist)})
+    #return render(request, 'data.html',{'sort_list': [],'meta_list' : json.dumps(metalist, cls=define.DataItemEncoder)})
+    return JsonResponse({'meta_list' : json.dumps(metalist, cls=define.DataItemEncoder)})
