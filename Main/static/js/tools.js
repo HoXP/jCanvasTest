@@ -52,13 +52,4 @@ $('#btnDone').click(function () {
     $.post("/ajax/tool", { 'a': iptNumbersValue }, function (ret) {
         alert('tool');
     });
-    //$.ajax({
-    //    type: 'POST',
-    //    url: "{% url 'ajax_tool' %}",
-    //    data: { a: iptNumbersValue },
-    //    success: function (ret) {
-    //        alert('tool');
-    //    },
-    //    dataType: dataType
-    //});
 });
