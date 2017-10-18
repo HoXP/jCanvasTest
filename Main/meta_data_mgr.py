@@ -1,13 +1,12 @@
 ﻿from Main import define
 import random
-import string
 
-def InitMataListByStrs(strs):
+def InitMataListByStrs(str):
     metalist = []
-    strs = numberStr.split(',')
+    strs = str.split(',')
     i = 0
     for x in strs:
-        metalist.append(define.DataItem(i,string.atoi(x)))
+        metalist.append(define.DataItem(i,int(x)))
         i+=1
     return metalist
 

@@ -28,8 +28,8 @@ def sort_bubble(request):
 @csrf_exempt
 def ajax_tool(request):
     numberStr = request.POST['a']
-    utils.PrintList(numberStr)
-    metalist = InitMataListByStrs(numberStr)
-    utils.PrintList(meta_data_mgr.metalist)
-    #return render(request, 'data.html',{'sort_list': [],'meta_list' : json.dumps(metalist, cls=define.DataItemEncoder)})
-    return JsonResponse({'meta_list' : json.dumps(metalist, cls=define.DataItemEncoder)})
+    print(numberStr)
+    metalist = meta_data_mgr.InitMataListByStrs(numberStr)
+    utils.PrintList(metalist)
+    return render(request, 'data.html',{'meta_list' : metalist})
+    #return JsonResponse({'meta_list' : json.dumps(metalist, cls=define.DataItemEncoder)})
