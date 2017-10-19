@@ -1,5 +1,7 @@
 ﻿import json
 
+MetaListKey = 'metalist'
+
 class DataItem(object):
     #StaticFeild = 0 #定义在类之内__init__方法之外的为类字段，即静态变量
     def __init__(self,id,val):

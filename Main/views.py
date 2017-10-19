@@ -11,7 +11,8 @@ def index(request):
     return render(request, 'index.html',{'meta_list' : metaList})
 
 def sort_bubble(request):
-    metalist = meta_data_mgr.InitMataListByRandomNums();
+    numberStr = request.POST[define.MetaListKey]
+    metalist = meta_data_mgr.InitMataListByStrs(numberStr)
     utils.PrintList(metalist)
     sortList = metalist.copy()
     i = 0
@@ -23,13 +24,11 @@ def sort_bubble(request):
             j+=1
         i+=1
     utils.PrintList(sortList)
-    return render(request, 'sort_bubble.html',{'sort_list': sortList,'meta_list' : metalist})
+    return render(request, 'sort_bubble.html',{'sort_list': sortList})
 
 @csrf_exempt
 def ajax_tool(request):
     numberStr = request.POST['a']
-    print(numberStr)
     metalist = meta_data_mgr.InitMataListByStrs(numberStr)
-    utils.PrintList(metalist)
     return render(request, 'data.html',{'meta_list' : metalist})
     #return JsonResponse({'meta_list' : json.dumps(metalist, cls=define.DataItemEncoder)})

@@ -49,7 +49,10 @@ $('#btnPlus').click(function () {
 });
 $('#btnDone').click(function () {
     var iptNumbersValue = iptNumbers.val().trim();
+    var key = "metalist";
+    sessionStorage.setItem(key, iptNumbersValue);    //保存生成的数字列表;
     $.post("/ajax/tool", { 'a': iptNumbersValue }, function (ret) {
-        alert('tool');
+        var val = sessionStorage.getItem(key);
+        alert(val);
     });
 });

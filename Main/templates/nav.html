@@ -11,7 +11,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">Sort<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{% url 'sort_bubble' %}">Bubble</a></li>
+                        <li><a href="javascript:;" onclick="javascript:onBubbleClick({% url 'sort_bubble' %})">Bubble</a></li>
                     </ul>
                 </li>
             </ul>
@@ -23,3 +23,5 @@
         </div>
     </div>
 </nav>
+{% load staticfiles %}
+<script src="{% static 'js/nav.js' %}"></script>
