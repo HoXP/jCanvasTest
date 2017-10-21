@@ -1,7 +1,13 @@
 ﻿from Main import define
 import random
 
-def InitMataListByStrs(str):
+def GetNumbersByRequest(request):
+    numberStr = request.GET[define.MetaListKey]
+    if (numberStr == 'undefined' or numberStr == 'null'):
+        numberStr = '0'
+    return GetMataListByStrs(numberStr)
+
+def GetMataListByStrs(str):
     metalist = []
     strs = str.split(',')
     i = 0

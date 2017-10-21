@@ -1,11 +1,15 @@
 ﻿var iptNumbers = $('#iptNumbers');
 var dgrIptNumbers = $('#dgrIptNumbers');
+var strValid = false;
+
 function OnFocusIptNumbers() {
     var iptNumbersValue = iptNumbers.val().trim();
     if (/^[\d,]*$/.test(iptNumbersValue)) {
+        strValid = true;
         dgrIptNumbers.hide();
     }
     else {
+        strValid = false;
         dgrIptNumbers.show();
     }
 }
@@ -48,11 +52,13 @@ $('#btnPlus').click(function () {
     }
 });
 $('#btnDone').click(function () {
+    if (strValid == false)
+    {
+        alert('Invalid numbers.');
+        return;
+    }
     var iptNumbersValue = iptNumbers.val().trim();
-    var key = "metalist";
+    var key = SgtTools.Instance().MetaListKey;
     sessionStorage.setItem(key, iptNumbersValue);    //保存生成的数字列表;
-    $.post("/ajax/tool", { 'a': iptNumbersValue }, function (ret) {
-        var val = sessionStorage.getItem(key);
-        alert(val);
-    });
+    alert(sessionStorage.getItem(key));
 });

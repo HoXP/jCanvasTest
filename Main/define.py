@@ -21,6 +21,9 @@ class DataItem(object):
     def __ne__(self,val):    #X != Y
         return self.Value != val
 
+    def __str__(self):
+        return '{}:{}'.format(self.Id,self.Value)
+
 class DataItemEncoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, DataItem):

@@ -1,9 +1,6 @@
-﻿var metaListKey = "metalist";
-var metaListVal = sessionStorage.getItem(key);
-
-function onBubbleClick(pURL) {
-    window.location.href = 'http://www.baidu.com';
-    var url = pURL;
-    alert(url);
-    $(location).attr('href', 'http://www.jb51.net');
+﻿function OnBubbleClick() {
+    var key = SgtTools.Instance().MetaListKey;
+    var metaListVal = sessionStorage.getItem(key);
+    var url = SgtTools.Instance().GetFullUrl('sort/bubble', metaListVal);
+    window.location.href = url;
 }

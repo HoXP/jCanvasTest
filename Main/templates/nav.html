@@ -1,4 +1,7 @@
-﻿<nav class="navbar navbar-default">
+﻿{% load staticfiles %}
+<script src="{% static 'js/nav.js' %}"></script>
+
+<nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-1" aria-expanded="false">
@@ -11,7 +14,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">Sort<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="javascript:;" onclick="javascript:onBubbleClick({% url 'sort_bubble' %})">Bubble</a></li>
+                        <li><a href="javascript:;" onclick="javascript: OnBubbleClick();">Bubble</a></li>
                     </ul>
                 </li>
             </ul>
@@ -23,5 +26,3 @@
         </div>
     </div>
 </nav>
-{% load staticfiles %}
-<script src="{% static 'js/nav.js' %}"></script>
