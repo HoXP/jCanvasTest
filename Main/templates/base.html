@@ -6,16 +6,14 @@
 {% block content %}
 {%include 'nav.html'%}
 <div class="container-fluid">
-    <div class="">
-        <div class="table-bordered embed-responsive embed-responsive-16by9">
-            <canvas id="cvs" class="embed-responsive-item" width="1920" height="1080">
-                Please use browsers that fullly support for the Canvas API.
-            </canvas>
-        </div>
+    <div class="table-bordered embed-responsive embed-responsive-16by9">
+        <canvas id="cvs" class="embed-responsive-item" width="1920" height="1080">
+            Please use browsers that fullly support for the Canvas API.
+        </canvas>
     </div>
 </div>
 {%include 'tools.html'%}
-{%include 'data.html'%}
 {% endblock %}
+{%block cvsScript%}{% endblock %}
 </body>
 </html>

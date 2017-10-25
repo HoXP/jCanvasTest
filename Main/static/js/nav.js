@@ -1,6 +1,4 @@
 ﻿function OnBubbleClick() {
-    var key = SgtTools.Instance().MetaListKey;
-    var metaListVal = sessionStorage.getItem(key);
-    var url = SgtTools.Instance().GetFullUrl('sort/bubble', metaListVal);
+    var url = SgtTools.Instance().GetFullUrl('sort/bubble', SgtTools.Instance().GetMetaListStr());
     window.location.href = url;
 }

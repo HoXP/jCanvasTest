@@ -43,5 +43,27 @@
     </div>
 </div>
 
-{% load staticfiles %}
-<script src="{% static 'js/tools.js' %}"></script>
+<div class="container-fluid">
+    <div class="table-bordered">
+    <div class="row">
+        <div class="col-sm-1">meta:</div>
+        <div id="divMeta" class="col-sm-11">
+            {%for item in metalist%}
+                {{item.Id}}:{{item.Value}}{%if not forloop.last%},{% endif %}
+            {%endfor%}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1">sort:</div>
+        <div id="divSort" class="col-sm-11">
+            {%for item in sortlist%}
+                {{item.Id}}:{{item.Value}}{%if not forloop.last%},{% endif %}
+            {%endfor%}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1">stepjson:</div>
+        <div id="divStepStr" class="col-sm-11" style="word-break:break-all;">{{stepjson}}</div>
+    </div>
+    </div>
+</div>

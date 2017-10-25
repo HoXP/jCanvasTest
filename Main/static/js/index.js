@@ -1,12 +1,40 @@
-﻿function Func() {
-    if ($(cvsId) == null)
-    {
+﻿function Init() {
+    if ($(cvsId) == null) {
         alert("no canvas");
     }
-    $(cvsId).drawPolygon({
-        fillStyle: "#6c3",
+    $(cvsId)
+    // Draw a circle
+    .drawArc({
+        layer: true,
+        groups: ['circles'],
+        fillStyle: '#c33',
         x: 100, y: 100,
-        radius: 50, sides: 5
+        radius: 50
+    })
+    // Draw another circle
+    .drawArc({
+        layer: true,
+        groups: ['circles'],
+        fillStyle: '#36c',
+        x: 220, y: 100,
+        radius: 50
     });
 }
-$(document).ready(Func);
+function Func() {
+    if ($(cvsId) == null) {
+        alert("no canvas");
+    }
+    $(cvsId)
+    // Animate all layers in the group 'circles'
+    .animateLayerGroup('circles', {
+        y: 200,
+        complete: function (layer) {
+            if (layer.fillStyle == '#36c') {
+            }
+        }
+    }, 500);
+}
+$(function () {
+    Init();
+    Func();
+});
