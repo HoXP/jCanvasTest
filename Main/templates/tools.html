@@ -45,25 +45,21 @@
 
 <div class="container-fluid">
     <div class="table-bordered">
-    <div class="row">
-        <div class="col-sm-1">meta:</div>
-        <div id="divMeta" class="col-sm-11">
-            {%for item in metalist%}
-                {{item.Id}}:{{item.Value}}{%if not forloop.last%},{% endif %}
-            {%endfor%}
+        <div class="row">
+            <div class="col-sm-1">MetaStr:</div>
+            <div id="divMetaStr" class="col-sm-11">{%for item in metalist%}{{item.Value}}{%if not forloop.last%},{% endif %}{%endfor%}</div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-1">sort:</div>
-        <div id="divSort" class="col-sm-11">
-            {%for item in sortlist%}
-                {{item.Id}}:{{item.Value}}{%if not forloop.last%},{% endif %}
-            {%endfor%}
+        <div class="row">
+            <div class="col-sm-1">MetaList:</div>
+            <div id="divMeta" class="col-sm-11">{%for item in metalist%}{{item.Id}}:{{item.Value}}{%if not forloop.last%},{% endif %}{%endfor%}</div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-1">stepjson:</div>
-        <div id="divStepStr" class="col-sm-11" style="word-break:break-all;">{{stepjson}}</div>
-    </div>
+        <div class="row">
+            <div class="col-sm-1">SortList:</div>
+            <div id="divSort" class="col-sm-11">{%for item in sortlist%}{{item.Id}}:{{item.Value}}{%if not forloop.last%},{% endif %}{%endfor%}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1">StepJsonStr:</div>
+            <div id="divStepStr" class="col-sm-11" style="word-break:break-all;">{{stepjson}}</div>
+        </div>
     </div>
 </div>

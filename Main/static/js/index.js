@@ -35,6 +35,7 @@ function Func() {
     }, 500);
 }
 $(function () {
+    sessionStorage.setItem(SgtTools.Instance().MetaListKey, $('#divMetaStr').text());   //保存后台随机生成的数;
     Init();
     Func();
 });
