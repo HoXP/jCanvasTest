@@ -86,6 +86,18 @@ var SgtTools = (function () {
             },
             GetValuePosY: function (){
                 return this.OriginalPosY + this.SwapArrowPosYOffset + this.IndexPosYOffset;
+            },
+            GetDictStepIndexByKey: function (key) {//根据键字符串获取该键的索引;
+                if (this.DictStepIndex != null) {
+                    var i = 0;
+                    for (var item in this.DictStepIndex) {
+                        if (item == key) {
+                            return i;
+                        }
+                        i++;
+                    }
+                }
+                return -1;
             }
         }
     }

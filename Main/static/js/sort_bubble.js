@@ -1,6 +1,6 @@
-﻿var goon = false;
-var operator;
-var curGroupIds = new Array();
+﻿var goon = false;   //是否继续;
+var operator;   //操作符;
+var curGroupIds = new Array();  //当前比较的组ID的数组;
 
 function Init() {
     var metaList = $('#divMeta').text();
@@ -41,33 +41,27 @@ function Init() {
     SgtTools.Instance().ArrStep = JSON.parse(stepStr);
     goon = true;
 }
-function NameIsIndexOf(name) {
-    if (SgtTools.Instance().DictStepIndex != null) {
-        var i = 0;
-        for (var item in SgtTools.Instance().DictStepIndex) {
-            if (item == name) {
-                return i;
-            }
-            ++i;
-        }
-    }
-    return -1;  //不存在;
-}
 function AddOrUpdateIndex(name, value) {
     SgtTools.Instance().DictStepIndex[name] = value;
-    var index = NameIsIndexOf(name);
     var layerName = 'idx_{0}'.format(name);
     var layerText = '{0}={1}'.format(name, value);
-    $(cvsId).addLayer({
-        type: 'text',
-        name: layerName,
-        fromCenter: false,
-        fillStyle: '#04f',
-        fontSize: 24,
-        x: SgtTools.Instance().OriginalPosY + 100 * index,
-        y: SgtTools.Instance().OriginalPosY,
-        text: layerText
-    }).drawLayers();
+    var layer = $(cvsId).getLayer(layerName);
+    if (layer != null) {
+        $(cvsId).setLayer(layerName, {
+            text: layerText
+        }).drawLayers();
+    } else {
+        $(cvsId).addLayer({
+            type: 'text',
+            name: layerName,
+            fromCenter: false,
+            fillStyle: '#04f',
+            fontSize: 24,
+            x: SgtTools.Instance().OriginalPosY + 100 * SgtTools.Instance().GetDictStepIndexByKey(name),
+            y: SgtTools.Instance().OriginalPosY,
+            text: layerText
+        }).drawLayers();
+    }
     goon = true;
 }
 function Cmp(id1, id2) {
