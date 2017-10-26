@@ -15,14 +15,14 @@ def sort_bubble(request):
     sortList = metaList.copy()
     stepList = []
     stepList.append('{}:{}'.format(define.Step.opr.name, 'gt'))
-    for i in range(len(sortList[:-1])): #外层循环：i=0至N-2（N-1趟）；
-        stepList.append('{}:i={}'.format(define.Step.idx.name,i))
-        for j in range(len(sortList[:-1 - i])):   #内层循环：j=0至N-2-i（N-1-i趟）；
-            stepList.append('{}:j={}'.format(define.Step.idx.name,j))
-            stepList.append('{}:{},{}'.format(define.Step.cmp.name,sortList[j].Id,sortList[j + 1].Id))
-            if sortList[j] > sortList[j + 1]:   #相邻比较，前者大就交换；
+    for outer in range(len(sortList) - 1,0,-1): #外层循环：倒序，递减；[N-1,0)【N-1趟】；
+        stepList.append('{}:outer={}'.format(define.Step.idx.name,outer))
+        for inner in range(outer):   #内层循环：正序，递增；[0,outer)【outer趟】；
+            stepList.append('{}:inner={}'.format(define.Step.idx.name,inner))
+            stepList.append('{}:{},{}'.format(define.Step.cmp.name,sortList[inner].Id,sortList[inner + 1].Id))
+            if sortList[inner] > sortList[inner + 1]:   #相邻比较，前者大就交换；
                 stepList.append('{}'.format(define.Step.swp.name))
-                (sortList[j],sortList[j + 1]) = (sortList[j + 1],sortList[j])
+                (sortList[inner],sortList[inner + 1]) = (sortList[inner + 1],sortList[inner])
     print('{}'.format(json.dumps(stepList)))
     return render(request, 'sort_bubble.html',{define.MetaListKey : metaList,
                                                define.SortListKey : sortList,
