@@ -28,3 +28,27 @@ def sort_bubble(request):
                                                define.SortListKey : sortList,
                                                define.StepJsonKey : json.dumps(stepList)
                                                })
+
+def sort_selection(request):
+    metaList = meta_data_mgr.GetNumbersByRequest(request)
+    sortList = metaList.copy()
+    stepList = []
+    stepList.append('{}:{}'.format(define.Step.opr.name, 'lt'))
+    min = 0
+    for outer in range(len(sortList)): #外层循环：正序，递增；[0,N)【N趟】；
+        stepList.append('{}:outer={}'.format(define.Step.idx.name,outer))
+        min = outer
+        stepList.append('{}:min={}'.format(define.Step.idx.name,min))
+        for inner in range(outer + 1,len(sortList)):   #内层循环：正序，递增；[0,outer)【outer趟】；
+            stepList.append('{}:inner={}'.format(define.Step.idx.name,inner))
+            stepList.append('{}:{},{}'.format(define.Step.cmp.name,sortList[inner].Id,sortList[min].Id))
+            if sortList[inner] < sortList[min]:
+                min = inner
+                stepList.append('{}:min={}'.format(define.Step.idx.name,min))
+        stepList.append('{}:{},{}'.format(define.Step.swp.name,sortList[outer].Id,sortList[min].Id))
+        (sortList[outer],sortList[min]) = (sortList[min],sortList[outer])
+    utils.PrintList(sortList)
+    return render(request, 'sort_selection.html',{define.MetaListKey : metaList,
+                                               define.SortListKey : sortList,
+                                               define.StepJsonKey : json.dumps(stepList)
+                                               })

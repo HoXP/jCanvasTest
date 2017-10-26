@@ -17,4 +17,5 @@ urlpatterns = [
     # url(r'^admin/', include(admin.site.urls)),
     url(r'^$', main.index, name='index'),
     url(r'^sort/bubble$', main.sort_bubble, name='sort_bubble'),
+    url(r'^sort/selection', main.sort_selection, name='sort_selection'),
 ]
