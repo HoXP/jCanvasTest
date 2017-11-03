@@ -67,9 +67,13 @@
     <Content Include="Main\static\common\jcanvas.min.js" />
     <Content Include="Main\static\common\jquery-3.2.1.min.js" />
     <Content Include="Main\static\js\index.js" />
+    <Content Include="Main\static\js\jCanvasExtend.js" />
     <Content Include="Main\static\js\nav.js" />
+    <Content Include="Main\static\js\SgtJCanvas.js" />
+    <Content Include="Main\static\js\sort_base.js" />
     <Content Include="Main\static\js\sort_bubble.js" />
     <None Include="Main\static\js\_references.js" />
+    <Content Include="Main\static\js\sort_insertion.js" />
     <Content Include="Main\static\js\sort_selection.js" />
     <Content Include="Main\static\js\tools.js" />
     <Content Include="Main\static\js\SgtTools.js" />
@@ -78,6 +82,7 @@
     <Content Include="Main\templates\index.html" />
     <Content Include="Main\templates\nav.html" />
     <Content Include="Main\templates\sort_bubble.html" />
+    <Content Include="Main\templates\sort_insertion.html" />
     <Content Include="Main\templates\sort_selection.html" />
     <Content Include="Main\templates\tools.html" />
     <Content Include="requirements.txt" />

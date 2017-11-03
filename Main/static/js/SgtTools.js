@@ -12,7 +12,8 @@ if (typeof Step == "undefined") {
         opr: 'opr',
         idx: 'idx',
         cmp: 'cmp',
-        swp: 'swp'
+        swp: 'swp',
+        set: 'set'
     }
 }
 
@@ -22,17 +23,7 @@ var SgtTools = (function () {
         return {
             MetaListKey: "metalist",    //元数据键字符串;
             NumMaxCount: 1000, //数字最多个数;
-
-            OriginalPosX: 50,  //初始位置X;
-            OriginalPosY: 50,  //初始位置Y;
-            OriginalColor: 'rgb(51, 161, 201)',  //初始颜色;
-
-            OriginalSpacing: 10,    //初始间隔;
-            SwapArrowPosYOffset: 50,   //交换箭头线偏移;
-            IndexPosYOffset: 30, //索引偏移;
-            ValuePosYOffset: 30, //数字偏移;
-
-            MaxValue: 0,   //最大的数
+            MaxNumber: 999, //最大数字;
 
             ArrStep: new Array(),    //分步数组;
 
@@ -67,25 +58,6 @@ var SgtTools = (function () {
                     }
                 }
                 return nodeArr;
-            },
-            GetItemPosY: function () {//矩形的偏移=交换线+索引区+数字区;
-                return this.OriginalPosY + this.SwapArrowPosYOffset + this.IndexPosYOffset + this.ValuePosYOffset;
-            },
-            GetItemWidthByItemCount: function (numCount) {
-                var canvasW = $(cvsId).attr('width'); //画布宽度;
-                var width = canvasW - this.OriginalPosX * 2; //刨去左右两端的空白;
-                width = (width - (numCount - 1) * this.OriginalSpacing) / numCount; //刨去(N-1)个间隔，再除以N;
-                return width;
-            }
-            ,
-            GetItemHeightByValue: function (val) {
-                var canvasH = $(cvsId).attr('height');//画布高度;
-                var height = canvasH - this.GetItemPosY();
-                height = val / this.NumMaxCount * height;
-                return height;
-            },
-            GetValuePosY: function (){
-                return this.OriginalPosY + this.SwapArrowPosYOffset + this.IndexPosYOffset;
             },
             GetDictStepIndexByKey: function (key) {//根据键字符串获取该键的索引;
                 if (this.DictStepIndex != null) {

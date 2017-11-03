@@ -39,6 +39,8 @@ class Step(Enum):
     idx = 2
     cmp = 3
     swp = 4
+    set = 5
+    tmp = 6
 
 class StepBase(object):
     def __init__(self,enm):

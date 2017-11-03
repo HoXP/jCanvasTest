@@ -21,7 +21,7 @@ def sort_bubble(request):
             stepList.append('{}:inner={}'.format(define.Step.idx.name,inner))
             stepList.append('{}:{},{}'.format(define.Step.cmp.name,sortList[inner].Id,sortList[inner + 1].Id))
             if sortList[inner] > sortList[inner + 1]:   #相邻比较，前者大就交换；
-                stepList.append('{}'.format(define.Step.swp.name))
+                stepList.append('{}:{},{}'.format(define.Step.swp.name,sortList[inner].Id,sortList[inner + 1].Id))
                 (sortList[inner],sortList[inner + 1]) = (sortList[inner + 1],sortList[inner])
     print('{}'.format(json.dumps(stepList)))
     return render(request, 'sort_bubble.html',{define.MetaListKey : metaList,
@@ -39,7 +39,7 @@ def sort_selection(request):
         stepList.append('{}:outer={}'.format(define.Step.idx.name,outer))
         min = outer
         stepList.append('{}:min={}'.format(define.Step.idx.name,min))
-        for inner in range(outer + 1,len(sortList)):   #内层循环：正序，递增；[0,outer)【outer趟】；
+        for inner in range(outer + 1,len(sortList)):   #内层循环：正序，递增；[outer + 1,N)【N-outer-1趟】；
             stepList.append('{}:inner={}'.format(define.Step.idx.name,inner))
             stepList.append('{}:{},{}'.format(define.Step.cmp.name,sortList[inner].Id,sortList[min].Id))
             if sortList[inner] < sortList[min]:
@@ -49,6 +49,35 @@ def sort_selection(request):
         (sortList[outer],sortList[min]) = (sortList[min],sortList[outer])
     utils.PrintList(sortList)
     return render(request, 'sort_selection.html',{define.MetaListKey : metaList,
+                                               define.SortListKey : sortList,
+                                               define.StepJsonKey : json.dumps(stepList)
+                                               })
+
+def sort_insertion(request):
+    metaList = meta_data_mgr.GetNumbersByRequest(request)
+    sortList = metaList.copy()
+    stepList = []
+    inner = 0
+    stepList.append('{}:inner={}'.format(define.Step.idx.name,inner))
+    tempId = -1;
+    temp = define.DataItem(tempId,0)
+    stepList.append('{}:{},{}'.format(define.Step.set.name,tempId,temp.Value))
+    for outer in range(1,len(sortList)):
+        stepList.append('{}:outer={}'.format(define.Step.idx.name,outer))
+        temp = sortList[outer]
+        stepList.append('{}:{},{}'.format(define.Step.set.name,tempId,sortList[outer].Value))
+        inner = outer
+        stepList.append('{}:inner={}'.format(define.Step.idx.name,inner))
+        while inner > 0 and sortList[inner - 1] > temp:
+            stepList.append('{}:{},{}'.format(define.Step.cmp.name,sortList[inner - 1].Id,tempId))
+            sortList[inner] = sortList[inner - 1]
+            stepList.append('{}:{},{}'.format(define.Step.set.name,sortList[inner].Id,sortList[inner - 1].Value))
+            inner -= 1
+            stepList.append('{}:inner={}'.format(define.Step.idx.name,inner))
+        stepList.append('{}:{},{}'.format(define.Step.set.name,sortList[inner].Id,temp.Value))
+        sortList[inner] = temp
+    utils.PrintList(sortList)
+    return render(request, 'sort_insertion.html',{define.MetaListKey : metaList,
                                                define.SortListKey : sortList,
                                                define.StepJsonKey : json.dumps(stepList)
                                                })
