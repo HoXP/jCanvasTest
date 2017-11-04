@@ -57,26 +57,21 @@ def sort_insertion(request):
     metaList = meta_data_mgr.GetNumbersByRequest(request)
     sortList = metaList.copy()
     stepList = []
-    inner = 0
-    stepList.append('{}:inner={}'.format(define.Step.idx.name,inner))
     tempId = -1;
-    temp = define.DataItem(tempId,0)
-    stepList.append('{}:{},{}'.format(define.Step.set.name,tempId,temp.Value))
     for outer in range(1,len(sortList)):
         stepList.append('{}:outer={}'.format(define.Step.idx.name,outer))
         temp = sortList[outer]
-        stepList.append('{}:{},{}'.format(define.Step.set.name,tempId,sortList[outer].Value))
+        stepList.append('{}:{},{}'.format(define.Step.sei.name,tempId,temp.Value))
         inner = outer
         stepList.append('{}:inner={}'.format(define.Step.idx.name,inner))
         while inner > 0 and sortList[inner - 1] > temp:
-            stepList.append('{}:{},{}'.format(define.Step.cmp.name,sortList[inner - 1].Id,tempId))
+            stepList.append('{}:{},{}'.format(define.Step.cmp.name,inner - 1,tempId))
             sortList[inner] = sortList[inner - 1]
-            stepList.append('{}:{},{}'.format(define.Step.set.name,sortList[inner].Id,sortList[inner - 1].Value))
+            stepList.append('{}:{},{}'.format(define.Step.sei.name,inner,sortList[inner].Value))
             inner -= 1
             stepList.append('{}:inner={}'.format(define.Step.idx.name,inner))
-        stepList.append('{}:{},{}'.format(define.Step.set.name,sortList[inner].Id,temp.Value))
         sortList[inner] = temp
-    utils.PrintList(sortList)
+        stepList.append('{}:{},{}'.format(define.Step.sei.name,inner,sortList[inner].Value))
     return render(request, 'sort_insertion.html',{define.MetaListKey : metaList,
                                                define.SortListKey : sortList,
                                                define.StepJsonKey : json.dumps(stepList)

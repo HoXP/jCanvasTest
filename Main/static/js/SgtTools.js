@@ -13,7 +13,8 @@ if (typeof Step == "undefined") {
         idx: 'idx',
         cmp: 'cmp',
         swp: 'swp',
-        set: 'set'
+        set: 'set', //根据ID设值;
+        sei: 'sei'  //根据索引设值;(set index)
     }
 }
 

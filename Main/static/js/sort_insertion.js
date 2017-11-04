@@ -1,4 +1,6 @@
-﻿function Init() {
+﻿//var tempOriginalColor = 'rgb(51, 161, 201)';
+
+function Init() {
     var metaList = $('#divMeta').text();
     var nodeList = SgtTools.Instance().GetNodeListByStr(metaList);
     if (nodeList != null) {
@@ -32,6 +34,6 @@ function Cmp(id1, id2) {
     SgtJCanvas.Instance().PingPongNodeColor(id1, null);
     SgtJCanvas.Instance().PingPongNodeColor(id2, SetGoon);
 }
-function Set(id, val) {
-    SgtJCanvas.Instance().SetNodeGroup(id, val, true, SetGoon);
+function Sei(idx, val) {
+    SgtJCanvas.Instance().SetNodeGroup(idx, val, true, SetGoon);
 }
