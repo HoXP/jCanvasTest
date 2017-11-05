@@ -4,6 +4,9 @@ from enum import Enum
 MetaListKey = 'metalist'
 SortListKey = 'sortlist'
 StepJsonKey = 'stepjson'
+TargetKey = 'target'
+
+TempId = -1
 
 class DataItem(object):
     #StaticFeild = 0 #定义在类之内__init__方法之外的为类字段，即静态变量

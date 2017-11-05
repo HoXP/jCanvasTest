@@ -7,7 +7,7 @@ from Main import meta_data_mgr
 #from django.views.decorators.csrf import csrf_exempt
 
 def index(request):
-    metaList = meta_data_mgr.InitMataListByRandomNums()
+    metaList = meta_data_mgr.GetRandomMataList()
     return render(request, 'index.html',{define.MetaListKey : metaList})
 
 def sort_bubble(request):
@@ -54,18 +54,17 @@ def sort_selection(request):
                                                })
 
 def sort_insertion(request):
+    stepList = []
     metaList = meta_data_mgr.GetNumbersByRequest(request)
     sortList = metaList.copy()
-    stepList = []
-    tempId = -1;
     for outer in range(1,len(sortList)):
         stepList.append('{}:outer={}'.format(define.Step.idx.name,outer))
         temp = sortList[outer]
-        stepList.append('{}:{},{}'.format(define.Step.sei.name,tempId,temp.Value))
+        stepList.append('{}:{},{}'.format(define.Step.sei.name,define.TempId,temp.Value))
         inner = outer
         stepList.append('{}:inner={}'.format(define.Step.idx.name,inner))
         while inner > 0 and sortList[inner - 1] > temp:
-            stepList.append('{}:{},{}'.format(define.Step.cmp.name,inner - 1,tempId))
+            stepList.append('{}:{},{}'.format(define.Step.cmp.name,inner - 1,define.TempId))
             sortList[inner] = sortList[inner - 1]
             stepList.append('{}:{},{}'.format(define.Step.sei.name,inner,sortList[inner].Value))
             inner -= 1
@@ -76,3 +75,67 @@ def sort_insertion(request):
                                                define.SortListKey : sortList,
                                                define.StepJsonKey : json.dumps(stepList)
                                                })
+
+def search_binary(request):
+    stepList = []
+    metaList = meta_data_mgr.GetNumbersByRequest(request)
+    sortList = meta_data_mgr.GetSortedListByMetaList(metaList,True)
+    target = meta_data_mgr.GetTargetByRequest(request)
+    stepList.append('{}:{},{}'.format(define.Step.sei.name,define.TempId,target))
+    ret = -1;
+    stepList.append('{}:ret={}'.format(define.Step.idx.name,ret))
+    upper = len(sortList) - 1
+    stepList.append('{}:upper={}'.format(define.Step.idx.name,upper))
+    lower = 0
+    stepList.append('{}:lower={}'.format(define.Step.idx.name,lower))
+    mid = 0
+    stepList.append('{}:mid={}'.format(define.Step.idx.name,mid))
+    while lower <= upper:
+        stepList.append('{}:{},{}'.format(define.Step.cmp.name,lower,upper))
+        mid = (upper + lower) / 2
+        stepList.append('{}:mid={}'.format(define.Step.idx.name,mid))
+        mid = int(mid)
+        stepList.append('{}:mid={}'.format(define.Step.idx.name,mid))
+        stepList.append('{}:{},{}'.format(define.Step.cmp.name,mid,define.TempId))
+        if sortList[mid] == target:
+            ret = mid
+            stepList.append('{}:ret={}'.format(define.Step.idx.name,ret))
+            break
+        else:
+            if (target < sortList[mid]):
+                upper = mid - 1
+                stepList.append('{}:upper={}'.format(define.Step.idx.name,upper))
+            else:
+                lower = mid + 1
+                stepList.append('{}:lower={}'.format(define.Step.idx.name,lower))
+    return render(request, 'sort_insertion.html',{define.MetaListKey : sortList,
+                                                  define.StepJsonKey : json.dumps(stepList)})
+
+def search_binary_recursion(request):
+    stepList = []
+    metaList = meta_data_mgr.GetNumbersByRequest(request)
+    sortList = meta_data_mgr.GetSortedListByMetaList(metaList,True)
+    target = meta_data_mgr.GetTargetByRequest(request)
+    stepList.append('{}:{},{}'.format(define.Step.sei.name,define.TempId,target))
+    upper = len(sortList) - 1
+    stepList.append('{}:upper={}'.format(define.Step.idx.name,upper))
+    lower = 0
+    stepList.append('{}:lower={}'.format(define.Step.idx.name,lower))
+    ret = RBinarySearch(sortList,target,lower,upper)
+    stepList.append('{}:ret={}'.format(define.Step.idx.name,ret))
+    return render(request, 'sort_insertion.html',{define.MetaListKey : sortList,
+                                                  define.StepJsonKey : json.dumps(stepList)})
+
+def RBinarySearch(list,value, lower, upper):
+    if lower > upper:
+        return -1
+    else:
+        mid = int((upper + lower) / 2)
+        stepList.append('{}:mid={}'.format(define.Step.idx.name,mid))
+        stepList.append('{}:{},{}'.format(define.Step.cmp.name,mid,define.TempId))
+        if value < list[mid]:
+            return RBinarySearch(list,value, lower, mid - 1)
+        elif value == list[mid]:
+            return mid
+        else:
+            return RBinarySearch(list,value, mid + 1, upper)

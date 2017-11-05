@@ -23,6 +23,8 @@ var SgtTools = (function () {
     function init() {
         return {
             MetaListKey: "metalist",    //元数据键字符串;
+            TargetKey: "target",    //元数据键字符串;
+
             NumMaxCount: 1000, //数字最多个数;
             MaxNumber: 999, //最大数字;
 
@@ -36,12 +38,23 @@ var SgtTools = (function () {
                 return "{0}//{1}/".format(window.location.protocol, window.location.host);
             }
             ,
-            GetFullUrl: function (pathName, metaParam) {    //获取全URL;
+            GetFullUrl: function (pathName) {//获取全URL;
                 var ph = this.CurProtocolHost();
-                return "{0}{1}?{2}={3}".format(ph, pathName, this.MetaListKey, metaParam);
+                var url = "{0}{1}".format(ph, pathName);
+                url = '{0}{1}'.format(url,this.GetParamStr());
+                return url;
             },
             GetMetaListStr: function () {   //获取元数据字串（N1,N2,...,Nn）;
                 return sessionStorage.getItem(this.MetaListKey);
+            },
+            GetTargetStr: function () {
+                return sessionStorage.getItem(this.TargetKey);
+            },
+            GetParamStr:function(){
+                var p = '?';
+                p = '{0}{1}={2}'.format(p, this.MetaListKey, this.GetMetaListStr());
+                p = '{0}&{1}={2}'.format(p, this.TargetKey, this.GetTargetStr());
+                return p;
             },
             //参数：Id1:N1,Id2:N2,...,IdN,Nn
             //返回：Node类型数组;

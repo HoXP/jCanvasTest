@@ -69,6 +69,7 @@
     <Content Include="Main\static\js\index.js" />
     <Content Include="Main\static\js\jCanvasExtend.js" />
     <Content Include="Main\static\js\nav.js" />
+    <Content Include="Main\static\js\search_binary.js" />
     <Content Include="Main\static\js\SgtJCanvas.js" />
     <Content Include="Main\static\js\sort_base.js" />
     <Content Include="Main\static\js\sort_bubble.js" />
@@ -81,6 +82,7 @@
     <Content Include="Main\templates\head.html" />
     <Content Include="Main\templates\index.html" />
     <Content Include="Main\templates\nav.html" />
+    <Content Include="Main\templates\search_binary.html" />
     <Content Include="Main\templates\sort_bubble.html" />
     <Content Include="Main\templates\sort_insertion.html" />
     <Content Include="Main\templates\sort_selection.html" />

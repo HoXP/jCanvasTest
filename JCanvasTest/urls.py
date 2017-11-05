@@ -19,4 +19,6 @@ urlpatterns = [
     url(r'^sort/bubble$', main.sort_bubble, name='sort_bubble'),
     url(r'^sort/selection', main.sort_selection, name='sort_selection'),
     url(r'^sort/insertion', main.sort_insertion, name='sort_insertion'),
+    url(r'^search/binary', main.search_binary, name='search_binary'),
+    url(r'^search/binary_r', main.search_binary_recursion, name='search_binary_recursion'),
 ]
