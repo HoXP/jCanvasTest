@@ -139,3 +139,34 @@ def RBinarySearch(list,value, lower, upper):
             return mid
         else:
             return RBinarySearch(list,value, mid + 1, upper)
+
+#基数排序↓
+def GetDigit(val,digit):
+	return int(val / 10**(digit-1) % 10)
+
+def RadixSort(lst, digit):
+	radix = 10	#基数
+	length = len(lst)
+	count = [0] * radix	#存放各个桶的数据统计个数
+	bucket = [0] * length	#按照从低位到高位的顺序执行排序过程
+	for d in range(1,digit + 1):
+		for i in range(0,radix):	#置空各个桶的数据统计
+			count[i] = 0
+
+		for i in range(0,length):	#统计各个桶将要装入的数据个数
+			j = GetDigit(lst[i], d)
+			count[j]+=1
+
+		for i in range(1,radix):	#count[i]表示第i个桶的右边界索引
+			count[i] = count[i] + count[i - 1]
+
+		for i in range(length - 1,-1,-1):	#将数据依次装入桶中；这里要从右向左扫描，保证排序稳定性
+			j = GetDigit(lst[i], d)
+			bucket[count[j] - 1] = lst[i]
+			count[j] -= 1
+
+		j = 0
+		for i in range(0,length):
+			lst[i] = bucket[j]
+			j+=1
+#基数排序↑

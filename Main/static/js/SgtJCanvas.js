@@ -37,11 +37,13 @@
             GetNodeRectLayerNameById: function (id) {//根据id获取节点矩形层名;
                 return this.RectLayerNamePlaceholder.format(this.NodeGroupNamePlaceholder.format(id));
             },
-            InitNodeXYWH: function (startIdx, nodeCount, xPos, yPos, maxWidth, maxHeight) {//初始化各个节点的位置宽高;
+            InitRect: function (xPos, yPos, maxWidth, maxHeight) {
                 this.RectXPos = xPos;
                 this.RectYPos = yPos;
                 this.RectWidth = maxWidth;
                 this.RectHeight = maxHeight;
+            },
+            InitNodeXYWH: function (startIdx, nodeCount) {//初始化各个节点的位置宽高;
 
                 var offset = 0 - startIdx;
                 var itemWidth = this.GetItemWidthByItemCount(nodeCount);

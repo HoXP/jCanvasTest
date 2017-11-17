@@ -1,6 +1,4 @@
-﻿//var tempOriginalColor = 'rgb(51, 161, 201)';
-
-function Init() {
+﻿function Init() {
     var metaList = $('#divMeta').text();
     var nodeList = SgtTools.Instance().GetNodeListByStr(metaList);
     if (nodeList != null) {

@@ -109,12 +109,5 @@ function Node(str)//构造函数
         this.Id = parseInt($.trim(strArr[0]));
         this.Value = parseInt($.trim(strArr[1]));
     }
-    //---------Function---------
-    //Private;
-    //function priMethod() {
-    //}
-    //Public;
-    //Node.prototype.PubFunc = function () {
-    //}
 }
 var cvsId = '#cvs';

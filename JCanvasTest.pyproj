@@ -78,6 +78,7 @@
     <Content Include="Main\static\js\sort_selection.js" />
     <Content Include="Main\static\js\tools.js" />
     <Content Include="Main\static\js\SgtTools.js" />
+    <Content Include="Main\static\js\UIDefine.js" />
     <Content Include="Main\templates\base.html" />
     <Content Include="Main\templates\head.html" />
     <Content Include="Main\templates\index.html" />

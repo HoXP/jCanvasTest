@@ -59,7 +59,7 @@ function Update() {
         if (goon) {
             Flush();
         }
-    }, 1000);
+    }, 100);
 }
 $(function () {
     if ($(cvsId) == null) {
